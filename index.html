@@ -38,8 +38,8 @@
                 </li>
                 </ul>
                 <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search New Location" aria-label="Search">
-                <button class="btn btn-outline-light text-light" type="submit">Search</button>
+                <input id="locationField" class="form-control me-2" type="search" placeholder="Search New Location" aria-label="Search">
+                <button id="locationBtn" class="btn btn-outline-light text-light" type="submit">Search</button>
                 </form>
             </div>
             </div>
@@ -48,8 +48,14 @@
     <article class="px-3 mb-4">
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">City / Date</h1>
-                <p class="col-md-8 fs-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae dolorem possimus fuga temporibus quas expedita dignissimos voluptatibus rerum, ab unde officia corporis exercitationem culpa nobis perspiciatis obcaecati nam, veniam consequuntur!</p>
+                <h1 id="currentCity" class="display-5 fw-bold">City</h1>
+                <h2 id="currentTime" class="display-9 fw-bold">Date and Time</h2>
+                <p id="currentTemp" class="col-md-8 fs-4">tempurature:</p>
+                <p id="currentFeels" class="col-md-8 fs-4">feels like:</p>
+                <p id="currentWeather" class="col-md-8 fs-4">weather:</p>
+                <p id="currentPoP" class="col-md-8 fs-4">precipitation:</p>
+                <p id="currentWind" class="col-md-8 fs-4">wind:</p>
+                <p id="currentUVI" class="col-md-8 fs-4">uvi:</p>
             </div>
         </div>
         <div class="btn-group" role="group" aria-label="Choose 5 Day or 24 Hour Forecast">
