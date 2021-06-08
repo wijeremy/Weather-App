@@ -48,7 +48,7 @@ function setWeather(cityName){
                     currentTemp.textContent = "Temperature: " + Math.round(data.current.temp) + "F";
                     currentFeels.textContent = "Feels like: " + Math.round(data.current.feels_like) + "F";
                     currentWeather.textContent = data.current.weather[0].description;
-                    currentPoP.textContent = "Chance of rain: " + ((data.hourly[0].pop)*100) + "%";
+                    currentPoP.textContent = "Chance of rain: " + Math.round((data.hourly[0].pop)*100) + "%";
                     currentWind.textContent = "Wind: " + data.current.wind_speed + "mph";
                     currentUVI.textContent = "UV Index: " + data.current.uvi;
                     console.log(data)
