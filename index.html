@@ -44,6 +44,16 @@
             </div>
             </div>
         </nav>
+        <div class="tcontainer">
+            <div class="ticker-wrap">
+                <div class="ticker-move">
+                    <div class="ticker-item">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                    <div class="ticker-item">Aliquam consequat varius consequat.</div>
+                    <div class="ticker-item">Fusce dapibus turpis vel nisi malesuada sollicitudin.</div>
+                    <div class="ticker-item">Pellentesque auctor molestie orci ut blandit.</div>
+                </div>
+            </div>
+        </div>
     </header>
     <article class="px-3 mb-4">
         <div class="p-5 mb-4 bg-light rounded-3">
@@ -68,12 +78,23 @@
         <div class="row py-3" id="daily-card-table">
             <div class="col-sm-2">
                 <div class="card mb-2 border-dark bg-primary text-white">
+                    <h5 class="card-header border-dark" id="day0">Day 0</h5>
+                    <div class="card-body">
+                    <h5 class="card-title"> <span id="day0Hi">Hi: X*F</span> / <span id="day0Lo">Lo: Y*F</span></h5>
+                    <p class="card-text" id="day0Weather">Rainy/Sunny/Cloudy</p>
+                    <p class="card-text" id="day0Wind">Wind: some m/h</p>
+                    <p class="card-text" id="day0PoP">PoP: a lot%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card mb-2 border-dark bg-primary text-white">
                     <h5 class="card-header border-dark" id="day1">Day 1</h5>
                     <div class="card-body">
-                    <h5 class="card-title" id="day1Temp">Hi: X*F / Lo: Y*F</h5>
+                    <h5 class="card-title"> <span id="day1Hi">Hi: X*F</span> / <span id="day1Lo">Lo: Y*F</span></h5>
                     <p class="card-text" id="day1Weather">Rainy/Sunny/Cloudy</p>
                     <p class="card-text" id="day1Wind">Wind: some m/h</p>
-                    <p class="card-text" id="day1Humidity">Humidity: a lot%</p>
+                    <p class="card-text" id="day1PoP">PoP: a lot%</p>
                     </div>
                 </div>
             </div>
@@ -81,10 +102,10 @@
                 <div class="card mb-2 border-dark bg-primary text-white">
                     <h5 class="card-header border-dark" id="day2">Day 2</h5>
                     <div class="card-body">
-                    <h5 class="card-title" id="day2Temp">Hi: X*F / Lo: Y*F</h5>
+                    <h5 class="card-title"> <span id="day2Hi">Hi: X*F</span> / <span id="day2Lo">Lo: Y*F</span></h5>
                     <p class="card-text" id="day2Weather">Rainy/Sunny/Cloudy</p>
                     <p class="card-text" id="day2Wind">Wind: some m/h</p>
-                    <p class="card-text" id="day2Humidity">Humidity: a lot%</p>
+                    <p class="card-text" id="day2PoP">PoP: a lot%</p>
                     </div>
                 </div>
             </div> 
@@ -92,10 +113,10 @@
                 <div class="card mb-2 border-dark bg-primary text-white">
                     <h5 class="card-header border-dark" id="day3">Day 3</h5>
                     <div class="card-body">
-                    <h5 class="card-title" id="day3Temp">Hi: X*F / Lo: Y*F</h5>
+                    <h5 class="card-title"> <span id="day3Hi">Hi: X*F</span> / <span id="day3Lo">Lo: Y*F</span></h5>
                     <p class="card-text" id="day3Weather">Rainy/Sunny/Cloudy</p>
                     <p class="card-text" id="day3Wind">Wind: some m/h</p>
-                    <p class="card-text" id="day3Humidity">Humidity: a lot%</p>
+                    <p class="card-text" id="day3PoP">PoP: a lot%</p>
                     </div>
                 </div>
             </div> 
@@ -103,10 +124,10 @@
                 <div class="card mb-2 border-dark bg-primary text-white">
                     <h5 class="card-header border-dark" id="day4">Day 4</h5>
                     <div class="card-body">
-                    <h5 class="card-title" id="day4Temp">Hi: X*F / Lo: Y*F</h5>
+                    <h5 class="card-title"> <span id="day4Hi">Hi: X*F</span> / <span id="day4Lo">Lo: Y*F</span></h5>
                     <p class="card-text" id="day4Weather">Rainy/Sunny/Cloudy</p>
                     <p class="card-text" id="day4Wind">Wind: some m/h</p>
-                    <p class="card-text" id="day4Humidity">Humidity: a lot%</p>
+                    <p class="card-text" id="day4PoP">PoP: a lot%</p>
                     </div>
                 </div>
             </div> 
@@ -114,14 +135,35 @@
                 <div class="card mb-2 border-dark bg-primary text-white">
                     <h5 class="card-header border-dark" id="day5">Day 5</h5>
                     <div class="card-body">
-                    <h5 class="card-title" id="day5Temp">Hi: X*F / Lo: Y*F</h5>
+                    <h5 class="card-title"> <span id="day5Hi">Hi: X*F</span> / <span id="day5Lo">Lo: Y*F</span></h5>
                     <p class="card-text" id="day5Weather">Rainy/Sunny/Cloudy</p>
                     <p class="card-text" id="day5Wind">Wind: some m/h</p>
-                    <p class="card-text" id="day5Humidity">Humidity: a lot%</p>
+                    <p class="card-text" id="day5PoP">PoP: a lot%</p>
                     </div>
                 </div>
             </div>   
-                         
+            <div class="col-sm-2">
+                <div class="card mb-2 border-dark bg-primary text-white">
+                    <h5 class="card-header border-dark" id="day0">Day 6</h5>
+                    <div class="card-body">
+                    <h5 class="card-title"> <span id="day6Hi">Hi: X*F</span> / <span id="day6Lo">Lo: Y*F</span></h5>
+                    <p class="card-text" id="day6Weather">Rainy/Sunny/Cloudy</p>
+                    <p class="card-text" id="day6Wind">Wind: some m/h</p>
+                    <p class="card-text" id="day6PoP">PoP: a lot%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card mb-2 border-dark bg-primary text-white">
+                    <h5 class="card-header border-dark" id="day7">Day 7</h5>
+                    <div class="card-body">
+                    <h5 class="card-title"> <span id="day7Hi">Hi: X*F</span> / <span id="day7Lo">Lo: Y*F</span></h5>
+                    <p class="card-text" id="day7Weather">Rainy/Sunny/Cloudy</p>
+                    <p class="card-text" id="day7Wind">Wind: some m/h</p>
+                    <p class="card-text" id="day7PoP">PoP: a lot%</p>
+                    </div>
+                </div>
+            </div>            
         </div>
         <div id="hourly-card-table" class="py-3">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -132,10 +174,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour1">Hour 1</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour1Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour1Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour1Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour1Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour1Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour1PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -143,10 +185,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour2">Hour 2</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour2Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour2Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour2Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour2Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour2Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour2PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -154,10 +196,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour3">Hour 3</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour3Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour3Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour3Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour3Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour3Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour3PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -165,10 +207,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour4">Hour 4</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour4Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour4Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour4Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour4Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour4Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour4PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -176,10 +218,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour5">Hour 5</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour5Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour5Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour5Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour5Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour5Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour5PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -187,10 +229,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour6">Hour 6</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour6Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour6Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour6Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour6Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour6Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour6PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -202,10 +244,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour7">Hour 7</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour7Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour7Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour7Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour7Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour7Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour7PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -213,10 +255,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour8">Hour 8</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour8Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour8Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour8Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour8Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour8Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour8PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -224,10 +266,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour9">Hour 9</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour9Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour9Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour9Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour9Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour9Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour9PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -235,10 +277,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour10">Hour 10</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour10Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour10Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour10Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour10Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour10Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour10PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -246,10 +288,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour11">Hour 11</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour11Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour11Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour11Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour11Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour11Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour11PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -257,10 +299,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour12">Hour 12</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour12Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour12Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour12Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour12Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour12Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour12PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -272,10 +314,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour13">Hour 13</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour13Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour13Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour13Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour13Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour13Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour13PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -283,10 +325,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour14">Hour 14</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour14Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour14Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour14Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour14Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour14Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour14PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -294,10 +336,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour15">Hour 15</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour15Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour15Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour15Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour15Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour15Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour15PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -305,10 +347,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour16">Hour 16</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour16Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour16Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour16Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour16Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour16Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour16PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -316,10 +358,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour17">Hour 17</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour17Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour17Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour17Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour17Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour17Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour17PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -327,10 +369,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour18">Hour 18</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour18Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour18Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour18Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour18Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour18Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour18PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -342,10 +384,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour19">Hour 19</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour19Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour19Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour19Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour19Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour19Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour19PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -353,10 +395,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour20">Hour 20</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour20Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour20Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour20Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour20Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour20Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour20PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -364,10 +406,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour21">Hour 21</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour21Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour21Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour21Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour21Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour21Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour21PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -375,10 +417,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour22">Hour 22</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour22Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour22Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour22Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour22Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour22Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour22PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -386,10 +428,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour23">Hour 23</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour23Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour23Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour23Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour23Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour23Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour23PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>
@@ -397,10 +439,10 @@
                             <div class="card mb-2 border-dark bg-primary text-white">
                                 <h5 class="card-header border-dark" id="hour24">Hour 24</h5>
                                 <div class="card-body">
-                                <h5 class="card-title" id="hour24Temp">Hi: X*F / Lo: Y*F</h5>
+                                <h5 class="card-title" id="hour24Temp">Temperature: wow*F</h5>
                                 <p class="card-text" id="hour24Weather">Rainy/Sunny/Cloudy</p>
                                 <p class="card-text" id="hour24Wind">Wind: some m/h</p>
-                                <p class="card-text" id="hour24Humidity">Humidity: a lot%</p>
+                                <p class="card-text" id="hour24PoP">PoP: a lot%</p>
                                 </div>
                             </div>
                         </div>

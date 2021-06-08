@@ -52,6 +52,24 @@ function setWeather(cityName){
                     currentWind.textContent = "Wind: " + data.current.wind_speed + "mph";
                     currentUVI.textContent = "UV Index: " + data.current.uvi;
                     console.log(data)
+                    for (var i = 0; i < 8; i++) {
+                        var dailyHi = data.daily[i].temp.max;
+                        var dailyLo = data.daily[i].temp.min;
+                        var dailyWeather = data.daily[i].weather[0].description;
+                        var dailyWind = data.daily[i].wind_speed;
+                        var dailyPoP = data.daily[i].pop;
+                        var hiEl = document.getElementById("day" + i + "Hi");
+                        var loEl = document.getElementById("day" + i + "Lo");
+                        var weatherEl = document.getElementById("day" + i + "Weather");
+                        var windEl = document.getElementById("day" + i + "Wind");
+                        var popEl = document.getElementById("day" + i + "PoP");
+                        hiEl.textContent = "Hi: " + Math.round(dailyHi) + "F";
+                        loEl.textContent = "Lo: " + Math.round(dailyLo) + "F";
+                        weatherEl.textContent = dailyWeather;
+                        windEl.textContent = "Wind: " + dailyWind + "mph"
+                        popEl.textContent = "Chance of Rain: " + Math.round(dailyPoP*100) + "%"
+
+                    }
 
                 })
         })
@@ -62,7 +80,6 @@ function setWeather(cityName){
 locationBtn.addEventListener("click", function(event){
     event.preventDefault();
     currentCity = removeWhiteSpace(locationField.value)
-    console.log(currentCity)
     setWeather(currentCity)
 });
 
