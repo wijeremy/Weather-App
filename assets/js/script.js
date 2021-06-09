@@ -10,6 +10,9 @@ var currentWeather = document.getElementById("currentWeather");
 var currentPoP = document.getElementById("currentPoP");
 var currentWind = document.getElementById("currentWind");
 var currenUVI = document.getElementById("currentUVI");
+var now = moment()
+
+console.log(now.format("H"))
 
 function removeWhiteSpace(text){
     text = text.trim();
@@ -73,25 +76,36 @@ function setWeather(cityName){
                         var dailyHi = data.daily[i].temp.max;
                         var dailyLo = data.daily[i].temp.min;
                         var dailyWeather = data.daily[i].weather[0].description;
-                        var dailyWeatherIcon = data.daily[i].weather[0].icon
+                        var dailyWeatherIcon = data.daily[i].weather[0].icon;
                         var dailyWind = data.daily[i].wind_speed;
                         var dailyPoP = data.daily[i].pop;
                         var hiEl = document.getElementById("day" + i + "Hi");
                         var loEl = document.getElementById("day" + i + "Lo");
                         var weatherEl = document.getElementById("day" + i + "Weather");
-                        var weatherImg = document.getElementById("day" + i + "WeatherImg");
+                        var weatherImg = document.getElementById("day" + i + "Img");
                         var windEl = document.getElementById("day" + i + "Wind");
                         var popEl = document.getElementById("day" + i + "PoP");
                         hiEl.textContent = "Hi: " + Math.round(dailyHi) + "F";
                         loEl.textContent = "Lo: " + Math.round(dailyLo) + "F";
                         weatherEl.textContent = dailyWeather;
-                        weatherImg.setAttribute("style", "display: flex")
-                        weatherImg.setAttribute("src", "https://openweathermap.org/img/w/" + dailyWeatherIcon + ".png")
-                        windEl.textContent = "Wind: " + dailyWind + "mph"
-                        popEl.textContent = "Chance of Rain: " + Math.round(dailyPoP*100) + "%"
-
+                        weatherImg.setAttribute("src", "https://openweathermap.org/img/w/" + dailyWeatherIcon + ".png");
+                        weatherImg.setAttribute("alt", dailyWeather);
+                        windEl.textContent = "Wind: " + dailyWind + "mph";
+                        popEl.textContent = "Chance of Rain: " + Math.round(dailyPoP*100) + "%";
                     }
-
+                    for (var i = 0; i < 48; i++) {
+                        var hourlyTemp = Math.round(data.hourly[i].temp);
+                        var hourlyPoP = Math.round(data.hourly[i].pop * 100);
+                        var hourlyImg = data.hourly[i].weather[0].icon;
+                        var hourlyWeather = data.hourly[i].weather[0].description
+                        var hourlyTempEl = document.getElementById("hour" + i + "Temp");
+                        var hourlyPoPEl = document.getElementById("hour" + i + "PoP");
+                        var hourlyImgEl = document.getElementById("hour" + i + "Img");
+                        hourlyTempEl.textContent = hourlyTemp + "F";
+                        hourlyPoPEl.textContent = hourlyPoP + "% rain";
+                        hourlyImgEl.setAttribute("src", "https://openweathermap.org/img/w/" + hourlyImg + ".png");
+                        hourlyImgEl.setAttribute("alt", hourlyWeather);
+                    }
                 })
         })
 };
@@ -103,4 +117,5 @@ locationBtn.addEventListener("click", function(event){
     currentCity = removeWhiteSpace(locationField.value)
     setWeather(currentCity)
 });
+
 

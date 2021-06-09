@@ -36,6 +36,17 @@
     padding: 0 2rem;
   }
   /* ticker content taken from https://code-boxx.com/html-css-news-ticker-horizontal-vertical/ */
+  .flex {
+    display: flex;
+  }
+
+  .none {
+    display: none;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
 
   .accordion-button {
     background-color: #0d6efd;
