@@ -4,17 +4,18 @@ var locationBtn = document.getElementById("locationBtn");
 var apiKey = "d9427cb88440c4a3909a929c3b2d8e88";
 var currentCity;
 var units = "imperial";
-var currentTemp = document.getElementById("currentTemp");
-var currentFeels = document.getElementById("currentFeels");
-var currentWeather = document.getElementById("currentWeather");
-var currentPoP = document.getElementById("currentPoP");
-var currentWind = document.getElementById("currentWind");
-var currenUVI = document.getElementById("currentUVI");
+var currentCityEl = document.getElementById("currentCity");
+var currentTempEl = document.getElementById("currentTemp");
+var currentFeelsEl = document.getElementById("currentFeels");
+var currentWeatherEl = document.getElementById("currentWeather");
+var currentPoPEl = document.getElementById("currentPoP");
+var currentWindEl = document.getElementById("currentWind");
+var currentUVIEl = document.getElementById("currentUVI");
 var now = moment();
 var alertTextBox = document.getElementById("alertTextBox");
 var alertTextFiller = "This is a test of the National Weather Alert System. In the case of a real emergency, information and instructions would be posted here. This is only a test."
 
-console.log(now.format("H"))
+
 
 function removeWhiteSpace(text){
     text = text.trim();
@@ -57,22 +58,23 @@ function setWeather(cityName){
         .then(function (data){
             console.log(data)
             var latLon = [data.coord.lat, data.coord.lon]
+            currentCity = data.name
             return latLon
         })
         .then (function (latLon){
-            console.log(latLon[0] + ", " + latLon[1]);
             var weatherApi = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latLon [0] + "&lon=" + latLon[1] + "&units=" + units + "&appid=" + apiKey
             fetch(weatherApi)
                 .then(function(response){
                     return response.json();
                 })
                 .then(function (data) {
-                    currentTemp.textContent = "Temperature: " + Math.round(data.current.temp) + "F";
-                    currentFeels.textContent = "Feels like: " + Math.round(data.current.feels_like) + "F";
-                    currentWeather.textContent = data.current.weather[0].description;
-                    currentPoP.textContent = "Chance of rain: " + Math.round((data.hourly[0].pop)*100) + "%";
-                    currentWind.textContent = "Wind: " + data.current.wind_speed + "mph";
-                    currentUVI.textContent = "UV Index: " + data.current.uvi;
+                    currentCityEl.textContent = currentCity
+                    currentTempEl.textContent = "Temperature: " + Math.round(data.current.temp) + "F";
+                    currentFeelsEl.textContent = "Feels like: " + Math.round(data.current.feels_like) + "F";
+                    currentWeatherEl.textContent = data.current.weather[0].description;
+                    currentPoPEl.textContent = "Chance of rain: " + Math.round((data.hourly[0].pop)*100) + "%";
+                    currentWindEl.textContent = "Wind: " + data.current.wind_speed + "mph";
+                    currentUVIEl.textContent = "UV Index: " + data.current.uvi;
                     console.log(data)
                     for (var i = 0; i < 8; i++) {
                         var dailyHi = data.daily[i].temp.max;
@@ -124,6 +126,19 @@ function setWeather(cityName){
                             alertTextBox.textContent = alertTextFiller
                             ticker.setAttribute("style", "animation-duration: " + alertTextFiller.length/10 + "s")
                         }
+                    }
+                    var utcOffset = data.timezone_offset/3600
+                    console.log(utcOffset)
+                    var now = moment().utcOffset(utcOffset)
+                    document.getElementById("currentTime").textContent = now.format("ddd MMM Do, YYYY h:mm a")
+                    for (var i = 0; i < 8; i++) {
+                        var nextDay = now.add(1, "d");
+                        document.getElementById("day" + i + "Day").textContent = nextDay.format("ddd M/DD");
+                    }
+                    now = moment().utcOffset(utcOffset)
+                    for (var i = 0; i < 48; i++) {
+                        var nextHour = now.add(1, "h");
+                        document.getElementById("hour" + i + "Time").textContent = nextHour.format("ddd h a")
                     }
                 })
         })
