@@ -10,7 +10,9 @@ var currentWeather = document.getElementById("currentWeather");
 var currentPoP = document.getElementById("currentPoP");
 var currentWind = document.getElementById("currentWind");
 var currenUVI = document.getElementById("currentUVI");
-var now = moment()
+var now = moment();
+var alertTextBox = document.getElementById("alertTextBox");
+var alertTextFiller = "This is a test of the National Weather Alert System. In the case of a real emergency, information and instructions would be posted here. This is only a test."
 
 console.log(now.format("H"))
 
@@ -105,6 +107,23 @@ function setWeather(cityName){
                         hourlyPoPEl.textContent = hourlyPoP + "% rain";
                         hourlyImgEl.setAttribute("src", "https://openweathermap.org/img/w/" + hourlyImg + ".png");
                         hourlyImgEl.setAttribute("alt", hourlyWeather);
+                    }
+                    var dataKeys = Object.keys(data)
+                    var alertArray = []
+                    var ticker = document.getElementById("ticker-move")
+                    for (var i = 0; i < dataKeys.length; i++) {
+                        if (dataKeys[i] === "alerts") {
+                            var alerts = data.alerts
+                            for (var j = 0; j < alerts.length; j++) {
+                                alertArray.push(alerts[j].description.split("\n").join(" "))
+                            }
+                            var alertText = alertArray.join(" ... ALERT! ALERT! ALERT! ... ")
+                            alertTextBox.textContent = alertText
+                            ticker.setAttribute("style", "animation-duration: " + alertText.length/10 + "s")
+                        } else if (i === dataKeys.length - 1) {
+                            alertTextBox.textContent = alertTextFiller
+                            ticker.setAttribute("style", "animation-duration: " + alertTextFiller.length/10 + "s")
+                        }
                     }
                 })
         })
