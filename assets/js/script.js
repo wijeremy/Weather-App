@@ -13,13 +13,30 @@ var currenUVI = document.getElementById("currentUVI");
 
 function removeWhiteSpace(text){
     text = text.trim();
-    text = text.split("");
+    text = text.split(" ");
     var tempText = [];
     for (var i = 0; i < text.length; i++){
-        if (text[i] == " ") {
-            tempText.push("%20")
+        if (text[i] == text.lenght - 1) {
+            tempText.push(text[i])
         } else {
             tempText.push(text[i])
+            tempText.push("%20")
+        };
+    };
+    tempText = tempText.join("");
+    return tempText
+};
+
+function addWhiteSpace(text){
+    text = text.trim();
+    text = text.split("%20");
+    var tempText = [];
+    for (var i = 0; i < text.length; i++){
+        if (text[i] == text.lenght - 1) {
+            tempText.push(text[i])
+        } else {
+            tempText.push(text[i])
+            tempText.push(" ")
         };
     };
     tempText = tempText.join("");
