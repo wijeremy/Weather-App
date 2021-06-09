@@ -14,7 +14,10 @@ var currentUVIEl = document.getElementById("currentUVI");
 var now = moment();
 var alertTextBox = document.getElementById("alertTextBox");
 var alertTextFiller = "This is a test of the National Weather Alert System. In the case of a real emergency, information and instructions would be posted here. This is only a test."
-
+var dailyBtn = document.getElementById("daily-btn");
+var hourlyBtn = document.getElementById("hourly-btn");
+var dailyForecast = document.getElementById("dailyForecast");
+var hourlyForecast = document.getElementById("hourlyForecast");
 
 
 function removeWhiteSpace(text){
@@ -83,12 +86,16 @@ function setWeather(cityName){
                         var dailyWeatherIcon = data.daily[i].weather[0].icon;
                         var dailyWind = data.daily[i].wind_speed;
                         var dailyPoP = data.daily[i].pop;
+                        var dailyHumidity = data.daily[i].humidity;
+                        var dailyUVI = data.daily[i].uvi;
                         var hiEl = document.getElementById("day" + i + "Hi");
                         var loEl = document.getElementById("day" + i + "Lo");
                         var weatherEl = document.getElementById("day" + i + "Weather");
                         var weatherImg = document.getElementById("day" + i + "Img");
                         var windEl = document.getElementById("day" + i + "Wind");
                         var popEl = document.getElementById("day" + i + "PoP");
+                        var humidityEl = document.getElementById("day" + i + "Humidity");
+                        var UVIEl = document.getElementById("day" + i + "UVI");
                         hiEl.textContent = "Hi: " + Math.round(dailyHi) + "F";
                         loEl.textContent = "Lo: " + Math.round(dailyLo) + "F";
                         weatherEl.textContent = dailyWeather;
@@ -96,6 +103,8 @@ function setWeather(cityName){
                         weatherImg.setAttribute("alt", dailyWeather);
                         windEl.textContent = "Wind: " + dailyWind + "mph";
                         popEl.textContent = "Chance of Rain: " + Math.round(dailyPoP*100) + "%";
+                        humidityEl.textContent = "Humidity: " + dailyHumidity + "%";
+                        UVIEl.textContent = "UV Index: " + dailyUVI;
                     }
                     for (var i = 0; i < 48; i++) {
                         var hourlyTemp = Math.round(data.hourly[i].temp);
@@ -152,4 +161,21 @@ locationBtn.addEventListener("click", function(event){
     setWeather(currentCity)
 });
 
+dailyBtn.addEventListener('click', function(){
+    if (dailyForecast.classList.contains("none")){
+        hourlyForecast.classList.remove("flexDown");
+        hourlyForecast.classList.add("none");
+        dailyForecast.classList.remove("none");
+        dailyForecast.classList.add("flexDown");
+    };
+});
+
+hourlyBtn.addEventListener('click', function(){
+    if (hourlyForecast.classList.contains("none")){
+        dailyForecast.classList.remove("flexDown");
+        dailyForecast.classList.add("none");
+        hourlyForecast.classList.remove("none");
+        hourlyForecast.classList.add("flexDown");
+    };
+});
 
