@@ -56,16 +56,20 @@ function setWeather(cityName){
                         var dailyHi = data.daily[i].temp.max;
                         var dailyLo = data.daily[i].temp.min;
                         var dailyWeather = data.daily[i].weather[0].description;
+                        var dailyWeatherIcon = data.daily[i].weather[0].icon
                         var dailyWind = data.daily[i].wind_speed;
                         var dailyPoP = data.daily[i].pop;
                         var hiEl = document.getElementById("day" + i + "Hi");
                         var loEl = document.getElementById("day" + i + "Lo");
                         var weatherEl = document.getElementById("day" + i + "Weather");
+                        var weatherImg = document.getElementById("day" + i + "WeatherImg");
                         var windEl = document.getElementById("day" + i + "Wind");
                         var popEl = document.getElementById("day" + i + "PoP");
                         hiEl.textContent = "Hi: " + Math.round(dailyHi) + "F";
                         loEl.textContent = "Lo: " + Math.round(dailyLo) + "F";
                         weatherEl.textContent = dailyWeather;
+                        weatherImg.setAttribute("style", "display: flex")
+                        weatherImg.setAttribute("src", "https://openweathermap.org/img/w/" + dailyWeatherIcon + ".png")
                         windEl.textContent = "Wind: " + dailyWind + "mph"
                         popEl.textContent = "Chance of Rain: " + Math.round(dailyPoP*100) + "%"
 
