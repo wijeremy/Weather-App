@@ -185,6 +185,7 @@ function setWeather(cityName){
                            localStorage.setItem(cities[i], "past") 
                         }
                         localStorage.setItem(currentCity, "current");
+                        init()
                     }
                 })
         })
