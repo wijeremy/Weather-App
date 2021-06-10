@@ -268,3 +268,17 @@ function init(){
 }
 init()
 
+function logJSON(){
+    fetch("./assets/js/city.list.json")
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+            for (var i = 0; i<data.length; i++){
+                if (data[i].name == "detroit"){
+                    console.log(data[i])
+                }
+            }
+        })
+}
+logJSON()
