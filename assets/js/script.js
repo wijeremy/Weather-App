@@ -18,6 +18,7 @@ var dailyBtn = document.getElementById("daily-btn");
 var hourlyBtn = document.getElementById("hourly-btn");
 var dailyForecast = document.getElementById("dailyForecast");
 var hourlyForecast = document.getElementById("hourlyForecast");
+var cityList = document.getElementById("cityList")
 
 
 function removeWhiteSpace(text){
@@ -25,7 +26,7 @@ function removeWhiteSpace(text){
     text = text.split(" ");
     var tempText = [];
     for (var i = 0; i < text.length; i++){
-        if (text[i] == text.lenght - 1) {
+        if (i == text.length - 1) {
             tempText.push(text[i])
         } else {
             tempText.push(text[i])
@@ -41,7 +42,39 @@ function addWhiteSpace(text){
     text = text.split("%20");
     var tempText = [];
     for (var i = 0; i < text.length; i++){
-        if (text[i] == text.lenght - 1) {
+        if (i == text.length - 1) {
+            tempText.push(text[i])
+        } else {
+            tempText.push(text[i])
+            tempText.push(" ")
+        };
+    };
+    tempText = tempText.join("");
+    return tempText
+};
+
+function idify(text){
+    text = text.trim();
+    text = text.split(" ");
+    var tempText = [];
+    for (var i = 0; i < text.length; i++){
+        if (i == text.length - 1) {
+            tempText.push(text[i])
+        } else {
+            tempText.push(text[i])
+            tempText.push("-")
+        };
+    };
+    tempText = tempText.join("");
+    return tempText
+};
+
+function unidify(text){
+    text = text.trim();
+    text = text.split("-");
+    var tempText = [];
+    for (var i = 0; i < text.length; i++){
+        if (i == text.length - 1) {
             tempText.push(text[i])
         } else {
             tempText.push(text[i])
@@ -59,7 +92,6 @@ function setWeather(cityName){
             return response.json();
         })
         .then(function (data){
-            console.log(data)
             var latLon = [data.coord.lat, data.coord.lon]
             currentCity = data.name
             return latLon
@@ -78,7 +110,6 @@ function setWeather(cityName){
                     currentPoPEl.textContent = "Chance of rain: " + Math.round((data.hourly[0].pop)*100) + "%";
                     currentWindEl.textContent = "Wind: " + data.current.wind_speed + "mph";
                     currentUVIEl.textContent = "UV Index: " + data.current.uvi;
-                    console.log(data)
                     for (var i = 0; i < 8; i++) {
                         var dailyHi = data.daily[i].temp.max;
                         var dailyLo = data.daily[i].temp.min;
@@ -134,20 +165,26 @@ function setWeather(cityName){
                         } else if (i === dataKeys.length - 1) {
                             alertTextBox.textContent = alertTextFiller
                             ticker.setAttribute("style", "animation-duration: " + alertTextFiller.length/10 + "s")
-                        }
-                    }
-                    var utcOffset = data.timezone_offset/3600
-                    console.log(utcOffset)
-                    var now = moment().utcOffset(utcOffset)
-                    document.getElementById("currentTime").textContent = now.format("ddd MMM Do, YYYY h:mm a")
+                        };
+                    };
+                    var utcOffset = data.timezone_offset/3600;
+                    var now = moment().utcOffset(utcOffset);
+                    document.getElementById("currentTime").textContent = now.format("ddd MMM Do, YYYY h:mm a");
                     for (var i = 0; i < 8; i++) {
                         var nextDay = now.add(1, "d");
                         document.getElementById("day" + i + "Day").textContent = nextDay.format("ddd M/DD");
-                    }
-                    now = moment().utcOffset(utcOffset)
+                    };
+                    now = moment().utcOffset(utcOffset);
                     for (var i = 0; i < 48; i++) {
                         var nextHour = now.add(1, "h");
                         document.getElementById("hour" + i + "Time").textContent = nextHour.format("ddd h a")
+                    };
+                    if (localStorage.getItem(currentCity) === null){
+                        var cities = Object.keys(localStorage);
+                        for (var i = 0; i < cities.length; i++) {
+                           localStorage.setItem(cities[i], "past") 
+                        }
+                        localStorage.setItem(currentCity, "current");
                     }
                 })
         })
@@ -178,4 +215,55 @@ hourlyBtn.addEventListener('click', function(){
         hourlyForecast.classList.add("flexDown");
     };
 });
+
+function init(){
+    cityList.innerHTML = ""
+    var cities = Object.keys(localStorage);
+    for (var i = 0; i < cities.length; i++){
+        if (localStorage.getItem(cities[i]) === "current"){
+            currentCity = cities[i]
+            document.createElement("li");
+            var cityEl = document.createElement("li");
+            cityEl.textContent = currentCity;
+            var tempText = idify(currentCity)
+            cityEl.setAttribute("id", tempText)
+            cityEl.classList.add("dropdown-item")
+            cityEl.addEventListener("click", function(event){
+                var city = event.target.getAttribute("id")
+                currentCity = unidify(city)
+                setWeather(currentCity)
+            })
+            setWeather(currentCity)
+            cityList.appendChild(cityEl);
+            var divider = document.createElement("li")
+            var dividerInner = document.createElement("hr")
+            dividerInner.classList.add("dropdown-divider")
+            divider.appendChild(dividerInner)
+            cityList.appendChild(divider)
+            var cities = Object.keys(localStorage);
+            for (var i = 0; i < cities.length; i++){ 
+                if (localStorage.getItem(cities[i]) === "past"){
+                    document.createElement("li");
+                    var cityEl = document.createElement("li");
+                    cityEl.textContent = cities[i];
+                    var tempText = idify(cities[i])
+                    cityEl.setAttribute("id", tempText)
+                    cityEl.classList.add("dropdown-item")
+                    cityEl.addEventListener("click", function(event){
+                        var city = event.target.getAttribute("id")
+                        currentCity = unidify(city)
+                        var cities = Object.keys(localStorage);
+                        for (var i = 0; i < cities.length; i++) {
+                            localStorage.setItem(cities[i], "past") 
+                        }
+                        localStorage.setItem(currentCity, "current");
+                        init()
+                    })
+                    cityList.appendChild(cityEl);
+                }
+            }
+        }
+    }
+}
+init()
 
