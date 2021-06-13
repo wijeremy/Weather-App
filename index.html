@@ -27,11 +27,16 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Forecast</a>
+                        <a class="nav-link active" href="#">Forecast</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="newLocationBtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newLocationModal">
+                            New Location
+                        </button>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Location
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           Past Locations
                         </a>
                         <ul id="cityList" class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                     </li>
@@ -59,12 +64,12 @@
             <div class="container-fluid py-5">
                 <h1 id="currentCity" class="display-5 fw-bold">City</h1>
                 <h2 id="currentTime" class="display-9 fw-bold">Date and Time</h2>
-                <p id="currentTemp" class="col-md-8 fs-5">tempurature:</p>
-                <p id="currentFeels" class="col-md-8 fs-5">feels like:</p>
-                <p id="currentWeather" class="col-md-8 fs-5">weather:</p>
-                <p id="currentPoP" class="col-md-8 fs-5">precipitation:</p>
-                <p id="currentWind" class="col-md-8 fs-5">wind:</p>
-                <p id="currentUVI" class="col-md-8 fs-5">uvi:</p>
+                <p id="currentTemp" class="col-md-8 fs-5">Temperature:</p>
+                <p id="currentFeels" class="col-md-8 fs-5">Feels like:</p>
+                <p id="currentWeather" class="col-md-8 fs-5">Weather:</p>
+                <p id="currentPoP" class="col-md-8 fs-5">Chance of Rain</p>
+                <p id="currentWind" class="col-md-8 fs-5">Wind</p>
+                <p id="currentUVI" class="col-md-8 fs-5">UV Index</p>
             </div>
         </div>
         <div class="col-12 col-md-6">
@@ -80,18 +85,18 @@
                     <h2 class="accordion-header" id="day0">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse0" aria-expanded="false" aria-controls="flush-collapse0">
                             <span id="day0Day">Day0</span><span>&nbsp;&nbsp;</span>
-                            <span id="day0Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day0Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day0Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day0Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day0Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse0" class="accordion-collapse collapse" aria-labelledby="flush-heading0" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day0Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day0Wind">Wind: some m/h</p>
-                            <p id="day0PoP">PoP: a lot%</p>
-                            <p id="day0Humidity">Humidity: Moist%</p>
-                            <p id="day0UVI">UV Index: wow</p>
+                            <p id="day0Wind">Wind:</p>
+                            <p id="day0PoP">Rain:</p>
+                            <p id="day0Humidity">Humidity:</p>
+                            <p id="day0UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -99,18 +104,18 @@
                     <h2 class="accordion-header" id="day1">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
                             <span id="day1Day">Day1</span><span>&nbsp;&nbsp;</span>
-                            <span id="day1Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day1Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day1Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day1Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day1Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day1Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day1Wind">Wind: some m/h</p>
-                            <p id="day1PoP">PoP: a lot%</p>
-                            <p id="day1Humidity">Humidity: Moist%</p>
-                            <p id="day1UVI">UV Index: wow</p>
+                            <p id="day1Wind">Wind:</p>
+                            <p id="day1PoP">Rain:</p>
+                            <p id="day1Humidity">Humidity:</p>
+                            <p id="day1UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -118,18 +123,18 @@
                     <h2 class="accordion-header" id="day2">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
                             <span id="day2Day">Day2</span><span>&nbsp;&nbsp;</span>
-                            <span id="day2Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day2Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day2Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day2Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day2Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day2Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day2Wind">Wind: some m/h</p>
-                            <p id="day2PoP">PoP: a lot%</p>
-                            <p id="day2Humidity">Humidity: Moist%</p>
-                            <p id="day2UVI">UV Index: wow</p>
+                            <p id="day2Wind">Wind:</p>
+                            <p id="day2PoP">Rain:</p>
+                            <p id="day2Humidity">Humidity:</p>
+                            <p id="day2UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -137,18 +142,18 @@
                     <h2 class="accordion-header" id="day3">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
                             <span id="day3Day">Day3</span><span>&nbsp;&nbsp;</span>
-                            <span id="day3Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day3Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day3Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day3Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day3Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day3Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day3Wind">Wind: some m/h</p>
-                            <p id="day3PoP">PoP: a lot%</p>
-                            <p id="day3Humidity">Humidity: Moist%</p>
-                            <p id="day3UVI">UV Index: wow</p>
+                            <p id="day3Wind">Wind:</p>
+                            <p id="day3PoP">Rain:</p>
+                            <p id="day3Humidity">Humidity:</p>
+                            <p id="day3UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -156,18 +161,18 @@
                     <h2 class="accordion-header" id="day4">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
                             <span id="day4Day">Day4</span><span>&nbsp;&nbsp;</span>
-                            <span id="day4Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day4Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day4Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day4Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day4Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day4Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day4Wind">Wind: some m/h</p>
-                            <p id="day4PoP">PoP: a lot%</p>
-                            <p id="day4Humidity">Humidity: Moist%</p>
-                            <p id="day4UVI">UV Index: wow</p>
+                            <p id="day4Wind">Wind:</p>
+                            <p id="day4PoP">Rain:</p>
+                            <p id="day4Humidity">Humidity:</p>
+                            <p id="day4UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -175,18 +180,18 @@
                     <h2 class="accordion-header" id="day5">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapse5">
                             <span id="day5Day">Day5</span><span>&nbsp;&nbsp;</span>
-                            <span id="day5Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day5Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day5Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day5Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day5Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day5Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day5Wind">Wind: some m/h</p>
-                            <p id="day5PoP">PoP: a lot%</p>
-                            <p id="day5Humidity">Humidity: Moist%</p>
-                            <p id="day5UVI">UV Index: wow</p>
+                            <p id="day5Wind">Wind:</p>
+                            <p id="day5PoP">Rain:</p>
+                            <p id="day5Humidity">Humidity:</p>
+                            <p id="day5UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -194,18 +199,18 @@
                     <h2 class="accordion-header" id="day6">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
                             <span id="day6Day">Day6</span><span>&nbsp;&nbsp;</span>
-                            <span id="day6Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day6Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day6Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day6Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day6Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day6Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day6Wind">Wind: some m/h</p>
-                            <p id="day6PoP">PoP: a lot%</p>
-                            <p id="day6Humidity">Humidity: Moist%</p>
-                            <p id="day6UVI">UV Index: wow</p>
+                            <p id="day6Wind">Wind:</p>
+                            <p id="day6PoP">Rain:</p>
+                            <p id="day6Humidity">Humidity::/p>
+                            <p id="day6UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -213,18 +218,18 @@
                     <h2 class="accordion-header" id="day7">
                         <button class="accordion-button collapsed fs-5 fw-bold flex" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
                             <span id="day7Day">Day7</span><span>&nbsp;&nbsp;</span>
-                            <span id="day7Hi">hi: lotsF</span><span>&nbsp;&nbsp;</span>
-                            <span id="day7Lo">lo: naryF</span><span>&nbsp;</span>
+                            <span id="day7Hi">Hi: --F</span><span>&nbsp;&nbsp;</span>
+                            <span id="day7Lo">Lo: --F</span><span>&nbsp;</span>
                             <img id="day7Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                         </button>
                     </h2>
                     <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#dailyForecast">
                         <div class="accordion-body">
                             <p id="day7Weather">Rainy/Sunny/Cloudy</p>
-                            <p id="day7Wind">Wind: some m/h</p>
-                            <p id="day7PoP">PoP: a lot%</p>
-                            <p id="day7Humidity">Humidity: Moist%</p>
-                            <p id="day7UVI">UV Index: wow</p>
+                            <p id="day7Wind">Wind:</p>
+                            <p id="day7PoP">Rain:</p>
+                            <p id="day7Humidity">Humidity:</p>
+                            <p id="day7UVI">UV Index:</p>
                         </div>
                     </div>
                 </div>
@@ -234,8 +239,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span id="hour0Time">hour 0</span><span>&nbsp;/&nbsp;</span>
-                            <span id="hour0Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span id="hour0PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span id="hour0Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span id="hour0PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour0Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -244,8 +249,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour1Time">hour 1</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour1Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour1PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour1Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour1PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour1Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -254,8 +259,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour2Time">hour 2</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour2Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour2PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour2Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour2PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour2Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -264,8 +269,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour3Time">hour 3</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour3Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour3PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour3Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour3PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour3Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -274,8 +279,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour4Time">hour 4</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour4Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour4PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour4Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour4PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour4Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -284,8 +289,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour5Time">hour 5</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour5Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour5PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour5Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour5PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour5Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -294,8 +299,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour6Time">hour 6</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour6Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour6PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour6Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour6PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour6Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -304,8 +309,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour7Time">hour 7</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour7Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour7PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour7Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour7PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour7Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -314,8 +319,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour8Time">hour 8</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour8Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour8PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour8Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour8PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour8Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -324,8 +329,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour9Time">hour 9</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour9Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour9PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour9Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour9PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour9Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -334,8 +339,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour10Time">hour 10</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour10Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour10PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour10Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour10PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour10Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -344,8 +349,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour11Time">hour 11</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour11Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour11PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour11Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour11PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour11Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -354,8 +359,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour12Time">hour 12</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour12Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour12PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour12Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour12PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour12Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -364,8 +369,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour13Time">hour 13</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour13Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour13PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour13Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour13PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour13Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -374,8 +379,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour14Time">hour 14</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour14Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour14PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour14Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour14PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour14Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -384,8 +389,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour15Time">hour 15</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour15Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour15PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour15Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour15PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour15Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -394,8 +399,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour16Time">hour 16</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour16Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour16PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour16Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour16PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour16Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -404,8 +409,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour17Time">hour 17</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour17Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour17PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour17Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour17PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour17Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -414,8 +419,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour18Time">hour 18</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour18Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour18PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour18Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour18PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour18Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -424,8 +429,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour19Time">hour 19</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour19Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour19PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour19Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour19PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour19Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -434,8 +439,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour20Time">hour 20</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour20Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour20PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour20Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour20PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour20Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -444,8 +449,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour21Time">hour 21</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour21Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour21PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour21Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour21PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour21Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -454,8 +459,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour22Time">hour 22</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour22Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour22PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour22Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour22PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour22Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -464,8 +469,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour23Time">hour 23</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour23Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour23PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour23Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour23PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour23Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -474,8 +479,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour24Time">hour 24</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour24Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour24PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour24Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour24PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour24Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -484,8 +489,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour25Time">hour 25</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour25Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour25PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour25Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour25PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour25Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -494,8 +499,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour26Time">hour 26</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour26Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour26PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour26Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour26PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour26Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -504,8 +509,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour27Time">hour 27</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour27Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour27PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour27Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour27PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour27Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -514,8 +519,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour28Time">hour 28</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour28Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour28PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour28Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour28PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour28Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -524,8 +529,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour29Time">hour 29</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour29Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour29PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour29Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour29PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour29Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -534,8 +539,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour30Time">hour 30</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour30Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour30PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour30Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour30PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour30Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -544,8 +549,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour31Time">hour 31</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour31Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour31PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour31Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour31PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour31Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -554,8 +559,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour32Time">hour 32</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour32Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour32PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour32Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour32PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour32Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -564,8 +569,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour33Time">hour 33</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour33Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour33PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour33Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour33PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour33Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -574,8 +579,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour34Time">hour 34</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour34Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour34PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour34Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour34PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour34Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -584,8 +589,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour35Time">hour 35</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour35Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour35PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour35Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour35PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour35Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -594,8 +599,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour36Time">hour 36</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour36Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour36PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour36Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour36PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour36Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -604,8 +609,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour37Time">hour 37</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour37Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour37PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour37Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour37PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour37Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -614,8 +619,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour38Time">hour 38</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour38Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour38PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour38Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour38PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour38Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -624,8 +629,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour39Time">hour 39</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour39Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour39PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour39Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour39PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour39Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -634,8 +639,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour40Time">hour 40</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour40Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour40PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour40Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour40PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour40Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -644,8 +649,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour41Time">hour 41</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour41Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour41PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour41Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour41PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour41Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -654,8 +659,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour42Time">hour 42</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour42Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour42PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour42Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour42PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour42Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -664,8 +669,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour43Time">hour 43</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour43Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour43PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour43Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour43PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour43Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -674,8 +679,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour44Time">hour 44</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour44Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour44PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour44Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour44PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour44Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -684,8 +689,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour45Time">hour 45</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour45Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour45PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour45Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour45PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour45Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -694,8 +699,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour46Time">hour 46</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour46Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour46PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour46Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour46PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour46Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -704,8 +709,8 @@
                     <div class="card-body flex bg-primary text-white align-middle">
                         <div class="fs-5 fw-bold flex align-items-center">
                             <span class="align-middle" id="hour47Time">hour 47</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour47Temp">Lots F</span><span>&nbsp;/&nbsp;</span>
-                            <span class="align-middle" id="hour47PoP">NN% rain</span><span>&nbsp;&nbsp;</span>
+                            <span class="align-middle" id="hour47Temp">temp</span><span>&nbsp;/&nbsp;</span>
+                            <span class="align-middle" id="hour47PoP">rain</span><span>&nbsp;&nbsp;</span>
                         </div>
                         <img id="hour47Img" src="https://openweathermap.org/img/w/01d.png" alt="weather icon">
                     </div>
@@ -713,7 +718,23 @@
             </div>
         </div>
     </article>
+    <div class="modal fade" id="newLocationModal" tabindex="-1" aria-labelledby="neLocationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newLocationModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="newLocationModalBody" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="newLocationEnterBtn" type="button" class="btn btn-primary">Enter</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="./assets/js/script.js"></script>
     <script type="text/javascript" src="./assets/js/city.list.json"></script>
+    <script type="text/javascript" src="./assets/js/country-codes.json"></script>
 </body>
 </html>
