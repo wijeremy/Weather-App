@@ -182,8 +182,9 @@ function setWeatherByCoord(lat, lon){
             var now = moment().utcOffset(utcOffset);
             document.getElementById("currentTime").textContent = now.format("ddd MMM Do, YYYY h:mm a");
             for (var i = 0; i < 8; i++) {
-                var nextDay = now.add(1, "d");
+                var nextDay = now;
                 document.getElementById("day" + i + "Day").textContent = nextDay.format("ddd M/DD");
+                now.add(1,"d")
             };
             now = moment().utcOffset(utcOffset);
             for (var i = 0; i < 48; i++) {
@@ -300,32 +301,6 @@ function init(){
 };
 init()
 
-function logJSON(){
-    fetch("./assets/js/city.list.json")
-        .then(function(response){
-            return response.json()
-        })
-        .then(function(data){
-            for (var i = 0; i<data.length; i++){
-                if (data[i].name.toLowerCase() == "detroit"){
-                    console.log(data[i])
-                }
-            }
-        })
-}
-logJSON()
-
-function logCity(){
-    fetch("./assets/js/country-codes.json")
-        .then(function(response){
-            return response.json()
-        })
-        .then(function(data){
-            console.log(data[0])
-        })
-}
-logCity()
-
 newLocationBtn.addEventListener("click", function(){
     var newLocationEnterBtn = document.getElementById("newLocationEnterBtn")
     newLocationModalBody.innerHTML = ""
@@ -381,6 +356,9 @@ newLocationBtn.addEventListener("click", function(){
                         countryBtn.parentNode.replaceChild(stateBtn, countryBtn)
                         stateBtn.addEventListener("click", function(){
                             var myStateId = newLocationSelect.value
+                            if (myStateId === "PRESS ENTER TO CONTINUE"){
+                                myStateId = ""
+                            }
                             newLocationSelect.innerHTML = ""
                             console.log(myCountryId)
                             newLocationModalLabel = "Select your city:"
