@@ -23,7 +23,12 @@ var newLocationModal = document.getElementById("newLocationModal")
 var newLocationModalLabel = document.getElementById("newLocationModalLabel")
 var newLocationModalBody = document.getElementById("newLocationModalBody")
 var newLocationEnterBtn = document.getElementById("newLocationEnterBtn")
+var weatherStorage = localStorage.getItem("weather")
+var weatherStorageObject = JSON.parse(weatherStorage)
 
+function setWeatherStorage() {
+    localStorage.setItem("weather", JSON.stringify(weatherStorageObject))
+}
 
 
 function removeWhiteSpace(text){
@@ -113,7 +118,6 @@ function setWeatherByCoord(lat, lon){
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
             currentCityEl.textContent = currentCity
             currentTempEl.textContent = "Temperature: " + Math.round(data.current.temp) + "F";
             currentFeelsEl.textContent = "Feels like: " + Math.round(data.current.feels_like) + "F";
@@ -191,19 +195,22 @@ function setWeatherByCoord(lat, lon){
                 var nextHour = now.add(1, "h");
                 document.getElementById("hour" + i + "Time").textContent = nextHour.format("ddd h a")
             };
-            if (localStorage.getItem(currentCity) === null){
-                var cities = Object.keys(localStorage);
+            var weatherStorage = localStorage.getItem("weather")
+            var weatherStorageObject = JSON.parse(weatherStorage)
+            var cities = Object.keys(weatherStorageObject)
+            if (!(cities.includes(currentCity))){
                 for (var i = 0; i < cities.length; i++) {
-                    var cityStorage = JSON.parse(localStorage.getItem(cities[i]))
+                    var cityStorage = weatherStorageObject[cities[i]]
                     cityStorage.status = "past"
-                    localStorage.setItem(cities[i], JSON.stringify(cityStorage))
+                    weatherStorageObject[cities[i]] = cityStorage
                 }
                 var cityStorage = {
                     status: "current",
                     lat: data.lat,
                     lon: data.lon
                 }
-                localStorage.setItem(currentCity, JSON.stringify(cityStorage));
+                weatherStorageObject[currentCity] = cityStorage
+                setWeatherStorage()
                 init()
             }
         })
@@ -236,18 +243,23 @@ hourlyBtn.addEventListener('click', function(){
 
 function init(){
     cityList.innerHTML = ""
-    var cities = Object.keys(localStorage);
-    if (cities.length === 0){
-        cities.push("Dallas")
-        var cityStorage = {
-            status: "current",
-            lat: 32.7668,
-            lon: -96.7836
+    var storage = Object.keys(localStorage);
+    if (!("weather" in storage)){
+        weatherStorageObject = {
+            Dallas: {
+                status: "current",
+                lat: 32.7668,
+                lon: -96.7836
+            }
         }
-        localStorage.setItem("Dallas", JSON.stringify(cityStorage))
+        currenCity = "Dallas"
+        localStorage.setItem("weather", JSON.stringify(weatherStorageObject))
     }
+    var weatherStorage = localStorage.getItem("weather")
+    var weatherStorageObject = JSON.parse(weatherStorage)
+    var cities = Object.keys(weatherStorageObject)
     for (var i = 0; i < cities.length; i++){
-        var cityStorage = JSON.parse(localStorage.getItem(cities[i]))
+        var cityStorage = weatherStorageObject[cities[i]]
         if (cityStorage.status === "current"){
             currentCity = cities[i]
             document.createElement("li");
@@ -259,7 +271,7 @@ function init(){
             cityEl.addEventListener("click", function(event){
                 var city = event.target.getAttribute("id")
                 currentCity = unidify(city)
-                var cityStorage = cityStorage = JSON.parse(localStorage.getItem(currentCity))
+                var cityStorage = weatherStorageObjec[currentCity]
                 setWeatherByCoord(cityStorage.lat, cityStorage.lon)
             })
             setWeatherByCoord(cityStorage.lat, cityStorage.lon)
@@ -269,9 +281,9 @@ function init(){
             dividerInner.classList.add("dropdown-divider")
             divider.appendChild(dividerInner)
             cityList.appendChild(divider)
-            var cities = Object.keys(localStorage);
+            var cities = Object.keys(weatherStorageObject);
             for (var i = 0; i < cities.length; i++){ 
-                var cityStorage = JSON.parse(localStorage.getItem(cities[i]))
+                var cityStorage = weatherStorageObject[cities[i]]
                 if (cityStorage.status === "past"){
                     document.createElement("li");
                     var cityEl = document.createElement("li");
@@ -282,15 +294,12 @@ function init(){
                     cityEl.addEventListener("click", function(event){
                         var city = event.target.getAttribute("id")
                         currentCity = unidify(city)
-                        var cities = Object.keys(localStorage);
+                        var cities = Object.keys(weatherStorageObject);
                         for (var i = 0; i < cities.length; i++) {
-                            var cityStorage = JSON.parse(localStorage.getItem(cities[i]))
-                            cityStorage.status = "past"
-                            localStorage.setItem(cities[i], JSON.stringify(cityStorage))
+                            weatherStorageObject[i].status = "past"
                         }
-                        var cityStorage = JSON.parse(localStorage.getItem(currentCity))
-                        cityStorage.status = "current"
-                        localStorage.setItem(currentCity, JSON.stringify(cityStorage));
+                        weatherStorageObject[currentCity].status = "current"
+                        setWeatherStorage()
                         init()
                     })
                     cityList.appendChild(cityEl);
@@ -325,7 +334,6 @@ newLocationBtn.addEventListener("click", function(){
                 var myCountry = newLocationSelect.value
                 var myTempArray = myCountry.split("-")
                 myCountryId = myTempArray[1].trim()
-                console.log(myCountryId)
                 newLocationSelect.innerHTML = "" 
                 fetch("./assets/js/city.list.json")
                     .then(function(response){
@@ -340,7 +348,6 @@ newLocationBtn.addEventListener("click", function(){
                             }
                         }
                         eachStateInCountry = [...new Set(eachStateInCountry)].sort()
-                        console.log(myCountryId)
                         if (eachStateInCountry.length === 1){
                             var state = document.createElement("option")
                             state.textContent = "PRESS ENTER TO CONTINUE"
@@ -360,7 +367,6 @@ newLocationBtn.addEventListener("click", function(){
                                 myStateId = ""
                             }
                             newLocationSelect.innerHTML = ""
-                            console.log(myCountryId)
                             newLocationModalLabel = "Select your city:"
                             var cityArray = []
                             for (var i = 0; i < data.length; i++){
@@ -378,7 +384,6 @@ newLocationBtn.addEventListener("click", function(){
                             stateBtn.parentNode.replaceChild(cityBtn, stateBtn)
                             cityBtn.setAttribute("data-bs-dismiss", "modal")
                             cityBtn.addEventListener("click", function(){
-                                console.log(myStateId)
                                 var myCity = newLocationSelect.value
                                 for (var i = 0; i < data.length; i++){
                                     if (myCountryId == data[i].country && myStateId == data[i].state && myCity == data[i].name){
